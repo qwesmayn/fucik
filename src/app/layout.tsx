@@ -1,6 +1,7 @@
 import { Outfit } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Metadata } from "next";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -11,6 +12,11 @@ const hegval = localFont({
   src: "../assets/fonts/HegvalDisplay.otf",
   variable: "--font-hegval",
 });
+
+export const metadata: Metadata = {
+  title: 'Fucik',
+  description: 'Fucik',
+}
 
 export default function RootLayout({
   children,
