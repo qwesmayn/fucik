@@ -6,8 +6,9 @@ import ex3 from "@/assets/img/ex3.png";
 import ex4 from "@/assets/img/ex4.png";
 import ex5 from "@/assets/img/ex5.png";
 import ex6 from "@/assets/img/ex6.png";
-import { Button } from "@/shared/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { pageConfig } from "@/shared/config/page.config";
 
 export const Portfolio: FC = () => {
   return (
@@ -59,10 +60,13 @@ export const Portfolio: FC = () => {
           />
         </div>
         <div className="flex justify-center mt-[50px]">
-          <Button className="border border-white/10 rounded-[10px] h-[62px] w-full hover:bg-white/10 backdrop-blur-2xl">
+          <Link
+            href={pageConfig.projects}
+            className="flex items-center justify-center gap-2 border border-white/10 rounded-[10px] h-[62px] w-full hover:bg-white/10 backdrop-blur-2xl"
+          >
             <p className="text-lg font-light">View all works</p>
             <ArrowRight size={14} />
-          </Button>
+          </Link>
         </div>
       </div>
     </section>

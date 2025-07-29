@@ -3,11 +3,12 @@ import { cn } from "@/shared/lib/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  asChild?: boolean;
 }
 
-export const Button: FC<ButtonProps> = ({ className, children, ...props }) => {
+export const Button: FC<ButtonProps> = ({ className, children, asChild, ...props }) => {
   return (
-    <button
+    <button 
       {...props}
       className={cn("flex items-center justify-center gap-2 h-[52px] w-[189px] rounded-[5px] text-white cursor-pointer transition-colors duration-300", className)}
     >
