@@ -14,9 +14,9 @@ const hegval = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Fucik',
-  description: 'Fucik',
-}
+  title: "Fucik",
+  description: "Fucik",
+};
 
 export default function RootLayout({
   children,
@@ -24,8 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${outfit.variable} ${hegval.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${hegval.variable} antialiased`}
+    >
+      <body>
         <main className="overflow-hidden">{children}</main>
       </body>
     </html>
