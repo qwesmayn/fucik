@@ -81,9 +81,9 @@ export const AboutMe = () => {
             {tools.map((tool, index) => (
               <div
                 key={index}
-                className="px-5 py-2 rounded-[5px] border border-white/10 text-[#838383]"
+                className="px-5 py-2 rounded-[5px] border border-white/10"
               >
-                {tool}
+                <p className="text-[#838383]">{tool}</p>
               </div>
             ))}
           </AboutCard>

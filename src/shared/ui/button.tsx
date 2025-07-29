@@ -9,7 +9,7 @@ export const Button: FC<ButtonProps> = ({ className, children, ...props }) => {
   return (
     <button
       {...props}
-      className={cn("h-[52px] w-[189px] rounded-[5px] text-white cursor-pointer transition-colors duration-300", className)}
+      className={cn("flex items-center justify-center gap-2 h-[52px] w-[189px] rounded-[5px] text-white cursor-pointer transition-colors duration-300", className)}
     >
       {children}
     </button>

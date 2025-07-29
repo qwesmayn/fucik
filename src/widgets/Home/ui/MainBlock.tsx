@@ -75,7 +75,7 @@ export const MainBlock = () => {
 
       <div className="relative z-30 space-y-[47px]">
         <div className="flex items-center gap-4">
-          <Button className="bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light text-lg">
+          <Button className="bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light text-lg backdrop-blur-2xl">
             About me
           </Button>
           <Button className="bg-[#FF3C00] hover:bg-[#FF3C00]/[0.6] font-light text-lg">
