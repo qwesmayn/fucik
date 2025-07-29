@@ -62,7 +62,7 @@ export const Portfolio: FC = () => {
         <div className="flex justify-center mt-[50px]">
           <Link
             href={pageConfig.projects}
-            className="flex items-center justify-center gap-2 border border-white/10 rounded-[10px] h-[62px] w-full hover:bg-white/10 backdrop-blur-2xl"
+            className="flex items-center justify-center gap-2 border border-white/10 rounded-[10px] h-[62px] w-full hover:bg-white/10 backdrop-blur-2xl transition-colors duration-300"
           >
             <p className="text-lg font-light">View all works</p>
             <ArrowRight size={14} />
