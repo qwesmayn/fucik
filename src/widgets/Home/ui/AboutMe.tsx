@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger); 
+gsap.registerPlugin(ScrollTrigger);
 
 export const AboutMe = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -103,6 +103,7 @@ export const AboutMe = () => {
           className="object-cover"
         />
       </div>
+      <div className="absolute z-20 inset-0 bg-[url('/bgsec.png')] bg-cover bg-center mix-blend-soft-light" />
     </section>
   );
 };

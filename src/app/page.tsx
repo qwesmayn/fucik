@@ -6,7 +6,6 @@ export default function Home() {
       <MainBlock />
       <AboutMe />
       <Portfolio />
-      <div className="absolute z-20 inset-0 bg-[url('/bg.png')] bg-cover bg-center mix-blend-soft-light" />
     </main>
   );
 }

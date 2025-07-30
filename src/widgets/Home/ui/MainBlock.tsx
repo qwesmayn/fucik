@@ -12,7 +12,9 @@ export const MainBlock = () => {
   const rotate = 60;
 
   function getRandomInt(val: number) {
-    return Math.ceil(Math.random() * val) * (Math.round(Math.random()) ? 1 : -1);
+    return (
+      Math.ceil(Math.random() * val) * (Math.round(Math.random()) ? 1 : -1)
+    );
   }
 
   useGSAP(() => {
@@ -109,6 +111,7 @@ export const MainBlock = () => {
         ref={refCircle}
         className="absolute z-10 bg-[#0B0B0B] w-[505px] h-[505px] blur-[20px] rounded-full left-[25%] translate-y-[5%]"
       />
+      <div className="absolute z-20 inset-0 bg-[url('/bg.png')] bg-cover bg-center mix-blend-soft-light" />
     </section>
   );
 };
