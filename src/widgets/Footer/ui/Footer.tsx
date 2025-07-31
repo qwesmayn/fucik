@@ -3,6 +3,8 @@ import Image from "next/image";
 import { SocialCard } from "@/shared/ui/social-card";
 import behance from "@/shared/assets/icons/behance.png";
 import instagram from "@/shared/assets/icons/inst.png";
+import youtube from "@/shared/assets/icons/youtube.png";
+import linkedin from "@/shared/assets/icons/in.png";
 
 export const Footer: FC = () => {
   return (
@@ -50,16 +52,16 @@ export const Footer: FC = () => {
           href="https://www.instagram.com/xromosev"
         />
         <SocialCard
-          title="Behance"
+          title="Youtube"
           description="Super cases with portfolio"
-          icon={behance}
-          href="https://www.behance.net/xromosev"
+          icon={youtube}
+          href="https://www.youtube.com/@xromosev"
         />
         <SocialCard
-          title="Instagram"
+          title="Linkedin"
           description="Super cases with portfolio"
-          icon={instagram}
-          href="https://www.instagram.com/xromosev"
+          icon={linkedin}
+          href="https://www.linkedin.com/in/xromosev"
         />
       </div>
 
