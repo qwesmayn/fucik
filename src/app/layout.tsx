@@ -2,6 +2,7 @@ import { Outfit } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Metadata } from "next";
+import { Footer } from "@/widgets/Footer";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -9,7 +10,7 @@ const outfit = Outfit({
 });
 
 const hegval = localFont({
-  src: "../assets/fonts/HegvalDisplay.otf",
+  src: "../shared/assets/fonts/HegvalDisplay.otf",
   variable: "--font-hegval",
 });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
     >
       <body>
         <main className="overflow-hidden">{children}</main>
+        <Footer />
       </body>
     </html>
   );

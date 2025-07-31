@@ -91,7 +91,7 @@ export const AboutMe = () => {
       </div>
       <div
         ref={imageRef}
-        className="absolute right-[12%] top-[251px] w-[724px] h-[951px] "
+        className="absolute right-[9%] top-[251px] w-[824px] h-[1051px] "
       >
         <Image
           src="/radiance.webp"

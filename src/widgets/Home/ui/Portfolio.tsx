@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { PortfolioCard } from "./PortfolioCard";
-import ex1 from "@/assets/img/ex1.png";
-import ex2 from "@/assets/img/ex2.png";
-import ex3 from "@/assets/img/ex3.png";
-import ex4 from "@/assets/img/ex4.png";
-import ex5 from "@/assets/img/ex5.png";
-import ex6 from "@/assets/img/ex6.png";
+import ex1 from "@/shared/assets/img/ex1.png";
+import ex2 from "@/shared/assets/img/ex2.png";
+import ex3 from "@/shared/assets/img/ex3.png";
+import ex4 from "@/shared/assets/img/ex4.png";
+import ex5 from "@/shared/assets/img/ex5.png";
+import ex6 from "@/shared/assets/img/ex6.png";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { pageConfig } from "@/shared/config/page.config";
@@ -62,7 +62,7 @@ export const Portfolio: FC = () => {
         <div className="flex justify-center mt-[50px]">
           <Link
             href={pageConfig.projects}
-            className="flex items-center justify-center gap-2 border border-white/10 rounded-[10px] h-[62px] w-full hover:bg-white/10 backdrop-blur-2xl transition-colors duration-300"
+            className="flex items-center justify-center gap-2 border border-white/10 rounded-[10px] h-[62px] w-full hover:bg-white/10 transition-colors duration-300"
           >
             <p className="text-lg font-light">View all works</p>
             <ArrowRight size={14} />

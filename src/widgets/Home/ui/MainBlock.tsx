@@ -109,7 +109,7 @@ export const MainBlock = () => {
       <div className="absolute bg-[#FF3C00] w-[761px] h-[761px] rounded-full left-[15%] translate-y-[-30%] blur-[50px]" />
       <div
         ref={refCircle}
-        className="absolute z-10 bg-[#0B0B0B] w-[505px] h-[505px] blur-[20px] rounded-full left-[25%] translate-y-[5%]"
+        className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat w-[605px] h-[605px] rounded-full left-[20%] translate-y-[5%]"
       />
       <div className="absolute z-20 inset-0 bg-[url('/bg.png')] bg-cover bg-center mix-blend-soft-light" />
     </section>

@@ -19,7 +19,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
     <div className="flex flex-col gap-[25px]">
       <Link
         href={pageConfig.project + "/" + title}
-        className="group cursor-pointer relative w-full h-[321px] rounded-[10px] border border-white/10 backdrop-blur-2xl"
+        className="group cursor-pointer relative w-full h-[321px] rounded-[10px] border border-white/10"
       >
         <Image
           src={image}
