@@ -8,6 +8,7 @@ import { useRef, useEffect } from "react";
 
 export const MainBlock = () => {
   const refCircle = useRef<HTMLDivElement>(null);
+  const refNoise = useRef<HTMLDivElement>(null);
   const mainAnimation = useRef<gsap.core.Tween | null>(null);
   const mouseTimeout = useRef<NodeJS.Timeout | null>(null);
   const translate = 20;
@@ -36,6 +37,17 @@ export const MainBlock = () => {
 
   useGSAP(() => {
     startMainAnimation();
+    
+    const noise = refNoise.current;
+    if (noise) {
+      gsap.to(noise, {
+        x: "55px",
+        duration: 7,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -132,7 +144,10 @@ export const MainBlock = () => {
         ref={refCircle}
         className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat w-[605px] h-[605px] rounded-full left-[20%] translate-y-[5%]"
       />
-      <div className="absolute z-20 inset-0 bg-[url('/bg.png')] bg-cover bg-center mix-blend-soft-light" />
+      <div 
+        ref={refNoise}
+        className="absolute z-20 inset-0 bg-[url('/bg.png')] bg-cover bg-center mix-blend-soft-light" 
+      />
     </section>
   );
 };
