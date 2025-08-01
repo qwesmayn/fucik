@@ -8,6 +8,8 @@ import { useRef, useEffect } from "react";
 
 export const MainBlock = () => {
   const refCircle = useRef<HTMLDivElement>(null);
+  const mainAnimation = useRef<gsap.core.Tween | null>(null);
+  const mouseTimeout = useRef<NodeJS.Timeout | null>(null);
   const translate = 20;
   const rotate = 60;
 
@@ -17,11 +19,11 @@ export const MainBlock = () => {
     );
   }
 
-  useGSAP(() => {
+  const startMainAnimation = () => {
     const circle = refCircle.current;
     if (!circle) return;
 
-    gsap.to(circle, {
+    mainAnimation.current = gsap.to(circle, {
       xPercent: getRandomInt(translate),
       yPercent: getRandomInt(translate),
       rotation: getRandomInt(rotate),
@@ -30,6 +32,10 @@ export const MainBlock = () => {
       yoyo: true,
       repeat: -1,
     });
+  };
+
+  useGSAP(() => {
+    startMainAnimation();
   }, []);
 
   useEffect(() => {
@@ -37,6 +43,14 @@ export const MainBlock = () => {
     if (!circle) return;
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (mainAnimation.current) {
+        mainAnimation.current.kill();
+      }
+
+      if (mouseTimeout.current) {
+        clearTimeout(mouseTimeout.current);
+      }
+
       const circleRect = circle.getBoundingClientRect();
       const centerX = circleRect.left + circleRect.width / 2;
       const centerY = circleRect.top + circleRect.height / 2;
@@ -52,12 +66,19 @@ export const MainBlock = () => {
         duration: 3,
         ease: "expo.out",
       });
+
+      mouseTimeout.current = setTimeout(() => {
+        startMainAnimation();
+      }, 2000);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      if (mouseTimeout.current) {
+        clearTimeout(mouseTimeout.current);
+      }
     };
   }, []);
 
