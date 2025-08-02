@@ -1,5 +1,7 @@
 import { cn } from "@/shared/lib/utils";
-import { FC } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { FC, useRef } from "react";
 
 interface AboutCardProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -12,13 +14,36 @@ export const AboutCard: FC<AboutCardProps> = ({
   description,
   children,
   className,
+  ...props
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      ref.current,
+      {
+        scaleX: 0,
+      },
+      {
+        scaleX: 1,
+        duration: 2,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 90%",
+          toggleActions: "play complete none reset",
+        },
+      }
+    );
+  });
+
   return (
     <div
       className={cn(
-        "space-y-[39px] pb-[39px] border-b border-white/10 max-w-[593px] w-full",
+        "relative space-y-[39px] pb-[39px] max-w-[593px] w-full",
         className
       )}
+      {...props}
     >
       <div>
         <h3 className="text-[34px] font-medium font-outfit">{title}</h3>
@@ -30,6 +55,10 @@ export const AboutCard: FC<AboutCardProps> = ({
           <p className="text-white/50 font-light text-lg">{description}</p>
         </div>
       )}
+      <div
+        ref={ref}
+        className="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"
+      />
     </div>
   );
 };

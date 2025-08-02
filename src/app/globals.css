@@ -25,18 +25,28 @@ body {
   font-family: var(--font-hegval), sans-serif;
 }
 
-.progressive-blur {
-  position: relative;
-  overflow: hidden;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-.progressive-blur::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(15px);
-  mask-image: linear-gradient(to bottom right, transparent 0%, black 100%);
-  -webkit-mask-image: linear-gradient(to bottom right, transparent 0%, black 100%);
-  pointer-events: none;
-  z-index: 1;
+  .progressive-blur {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progressive-blur::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(15px);
+    mask-image: linear-gradient(to bottom right, transparent 0%, black 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom right,
+      transparent 0%,
+      black 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
 }

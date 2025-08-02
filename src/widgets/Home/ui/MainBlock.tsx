@@ -4,6 +4,7 @@ import { Button } from "@/shared/ui/button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useEffect } from "react";
 
 export const MainBlock = () => {
@@ -37,7 +38,7 @@ export const MainBlock = () => {
 
   useGSAP(() => {
     startMainAnimation();
-    
+
     const noise = refNoise.current;
     if (noise) {
       gsap.to(noise, {
@@ -110,12 +111,16 @@ export const MainBlock = () => {
 
       <div className="relative z-30 space-y-[47px]">
         <div className="flex items-center gap-4">
-          <Button className="bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light text-lg backdrop-blur-2xl">
-            About me
-          </Button>
-          <Button className="bg-[#FF3C00] hover:bg-[#FF3C00]/[0.6] font-light text-lg">
-            Portfolio
-          </Button>
+          <Link href="#about-me">
+            <Button className="bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light text-lg backdrop-blur-2xl">
+              About me
+            </Button>
+          </Link>
+          <Link href="#portfolio">
+            <Button className="bg-[#FF3C00] hover:bg-[#FF3C00]/[0.6] font-light text-lg">
+              Portfolio
+            </Button>
+          </Link>
         </div>
         <div className="max-w-[1178px] w-full grid grid-cols-2 gap-10 font-light text-xl text-white/50 *:border-l-2 *:border-white *:pl-[15px]">
           <div>
@@ -142,11 +147,11 @@ export const MainBlock = () => {
       <div className="absolute bg-[#FF3C00] w-[761px] h-[761px] rounded-full left-[15%] translate-y-[-30%] blur-[50px]" />
       <div
         ref={refCircle}
-        className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat w-[605px] h-[605px] rounded-full left-[20%] translate-y-[5%]"
+        className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat w-[605px] h-[605px] left-[20%] translate-y-[5%]"
       />
-      <div 
+      <div
         ref={refNoise}
-        className="absolute z-20 inset-0 bg-[url('/bg.png')] bg-cover bg-center mix-blend-soft-light" 
+        className="absolute z-20 inset-0 bg-[url('/bg.png')] bg-cover bg-center mix-blend-soft-light"
       />
     </section>
   );

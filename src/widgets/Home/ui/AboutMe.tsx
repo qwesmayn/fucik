@@ -13,6 +13,8 @@ gsap.registerPlugin(ScrollTrigger);
 export const AboutMe = () => {
   const ref = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const borderRef = useRef<HTMLDivElement>(null);
+
 
   useGSAP(() => {
     const image = imageRef.current;
@@ -58,10 +60,11 @@ export const AboutMe = () => {
         },
       }
     );
+
   });
 
   return (
-    <section className="relative mt-[250px] mb-[195px] min-h-screen px-15 flex flex-col justify-between">
+    <section id="about-me" className="relative mt-[250px] mb-[195px] min-h-screen px-15 flex flex-col justify-between">
       <div className="bg-[#FF3C00] relative z-30 text-center py-[1px] px-[5px] mb-[195px] w-max rounded-[5px] text-[#0B0B0B]">
         <p className="text-xl font-light">About me</p>
       </div>

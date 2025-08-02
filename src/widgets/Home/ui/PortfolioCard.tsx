@@ -27,13 +27,18 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
   hoveredIndex,
 }) => {
   return (
-    <div className=" flex flex-col gap-[25px]">
+    <div className={cn("relative flex flex-col gap-[25px] group mb-[115px] transition-al duration-700", hoveredIndex === index  && "mb-[50px]")}>
       <Link
         href={pageConfig.project + "/" + title}
         className={cn(
-          "group cursor-pointer relative w-full transition-normal duration-700 rounded-[10px] border border-white/10",
-          hoveredIndex === index ? "h-[479px]" : 
-          hoveredIndex === index - 1 || hoveredIndex === index + 1 ? "h-[228px]" : "h-[321px]",
+          "cursor-pointer relative w-full transition-normal duration-700 rounded-[10px] border border-white/10",
+          hoveredIndex === index 
+            ? "h-[479px]"
+            : hoveredIndex === index - 1 ||
+              (hoveredIndex === 3 && index === 2) ||
+              (hoveredIndex === 8 && index === 7)
+            ? "h-[228px]"
+            : "h-[321px]",
           className
         )}
         onMouseEnter={onMouseEnter}
@@ -51,7 +56,12 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
           <CircleArrowRight size={32} />
         </div>
       </Link>
-      <div className="flex items-center gap-[10px]">
+      <div
+        className={cn(
+          "absolute bottom-0 left-0 translate-y-[75px] flex items-center gap-[10px] transition-all duration-700",
+          hoveredIndex === index && "absolute bottom-[25px] left-[25px] translate-y-0"
+        )}
+      >
         <div className="flex gap-[10px]">
           {tools.map((tool, index) => (
             <div
