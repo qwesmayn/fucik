@@ -123,7 +123,7 @@ export const MainBlock = () => {
         </div>
       </div>
 
-      <div className="absolute top-[28%] right-[0] translate-x-[50%]">
+      <div className="absolute top-[28%] right-[0] translate-x-[50%] hover:rotate-[12deg] transition-all duration-1000">
         <Image src="/x.webp" alt="x" priority width={942} height={725} />
       </div>
 
