@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/shared/ui/button";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +8,6 @@ import { useRef, useEffect } from "react";
 
 export const MainBlock = () => {
   const refCircle = useRef<HTMLDivElement>(null);
-  const refNoise = useRef<HTMLDivElement>(null);
   const mainAnimation = useRef<gsap.core.Tween | null>(null);
   const mouseTimeout = useRef<NodeJS.Timeout | null>(null);
   const translate = 20;
@@ -35,21 +33,6 @@ export const MainBlock = () => {
       repeat: -1,
     });
   };
-
-  useGSAP(() => {
-    startMainAnimation();
-
-    const noise = refNoise.current;
-    if (noise) {
-      gsap.to(noise, {
-        x: "55px",
-        duration: 7,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-      });
-    }
-  }, []);
 
   useEffect(() => {
     const circle = refCircle.current;
