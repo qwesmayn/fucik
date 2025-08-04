@@ -92,7 +92,7 @@ export const MainBlock = () => {
         </div>
       </div>
 
-      <div className="relative z-30 space-y-[47px]">
+      <div className="relative z-30 space-y-[47px] max-w-[1178px]">
         <div className="flex items-center gap-4">
           <Link href="#about-me">
             <Button className="bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light text-lg backdrop-blur-2xl">
@@ -123,7 +123,7 @@ export const MainBlock = () => {
         </div>
       </div>
 
-      <div className="absolute top-[28%] right-[0] translate-x-[50%] hover:rotate-[12deg] transition-all duration-1000">
+      <div className="absolute top-[28%] right-[0] translate-x-[50%] hover:rotate-[6deg] transition-all duration-1000">
         <Image src="/x.webp" alt="x" priority width={942} height={725} />
       </div>
 
