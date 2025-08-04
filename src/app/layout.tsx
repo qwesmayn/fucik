@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Metadata } from "next";
 import { Footer } from "@/widgets/Footer";
+import { Header } from "@/widgets/Header";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -30,6 +31,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${hegval.variable} antialiased`}
     >
       <body>
+        <Header />
         <main className="overflow-hidden">{children}</main>
         <Footer />
       </body>

@@ -4,6 +4,7 @@ import { CircleArrowRight } from "lucide-react";
 import Link from "next/link";
 import { pageConfig } from "@/shared/config/page.config";
 import { cn } from "@/shared/lib/utils";
+import { ToolsList } from "./ToolsList";
 
 interface PortfolioCardProps extends React.HTMLAttributes<HTMLDivElement> {
   image: string | StaticImageData;
@@ -62,16 +63,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
           hoveredIndex === index && "absolute bottom-[25px] left-[25px] translate-y-0"
         )}
       >
-        <div className="flex gap-[10px]">
-          {tools.map((tool, index) => (
-            <div
-              key={index}
-              className="px-5 py-[5px] rounded-[5px] border border-white/10"
-            >
-              <p className="font-light text-lg">{tool}</p>
-            </div>
-          ))}
-        </div>
+        <ToolsList tools={tools} />
         <div>
           <p className="font-outfit font-light text-lg">{title}</p>
         </div>
