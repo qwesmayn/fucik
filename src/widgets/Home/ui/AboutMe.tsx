@@ -107,6 +107,7 @@ export const AboutMe = () => {
         />
       </div>
       <div className="absolute z-20 inset-0 bg-[url('/bgsec.png')] bg-cover bg-center mix-blend-soft-light" />
+      <div className="absolute z-20 inset-0 noise bg-cover bg-center mix-blend-soft-light" />
     </section>
   );
 };
