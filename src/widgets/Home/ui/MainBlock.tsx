@@ -132,7 +132,7 @@ export const MainBlock = () => {
         ref={refCircle}
         className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat w-[605px] h-[605px] left-[20%] translate-y-[5%]"
       />
-      <div className="absolute z-20 inset-0 noise bg-cover bg-center mix-blend-soft-light" />
+      <div className="noise mix-blend-soft-light" />
     </section>
   );
 };

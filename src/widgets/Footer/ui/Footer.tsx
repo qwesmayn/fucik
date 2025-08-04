@@ -65,8 +65,9 @@ export const Footer: FC = () => {
             href="https://www.linkedin.com/in/xromosev"
           />
         </div>
-        <div className="absolute z-20 inset-0 bg-[url('/bgfooter.png')] bg-cover bg-center mix-blend-soft-light" />
-        <div className="absolute z-20 inset-0 noise bg-cover bg-center mix-blend-soft-light" />
+        <div className="absolute z-20 inset-0 bg-[url('/bgfooter.png')] bg-cover bg-center mix-blend-soft-light">
+          <div className="noise mix-blend-soft-light" />
+        </div>
       </div>
     </footer>
   );

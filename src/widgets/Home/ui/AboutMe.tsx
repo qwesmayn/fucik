@@ -15,7 +15,6 @@ export const AboutMe = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const borderRef = useRef<HTMLDivElement>(null);
 
-
   useGSAP(() => {
     const image = imageRef.current;
     const aboutMe = ref.current;
@@ -60,11 +59,13 @@ export const AboutMe = () => {
         },
       }
     );
-
   });
 
   return (
-    <section id="about-me" className="relative mt-[250px] mb-[195px] min-h-screen px-15 flex flex-col justify-between">
+    <section
+      id="about-me"
+      className="relative mt-[250px] mb-[195px] min-h-screen px-15 flex flex-col justify-between"
+    >
       <div className="bg-[#FF3C00] relative z-30 text-center py-[1px] px-[5px] mb-[195px] w-max rounded-[5px] text-[#0B0B0B]">
         <p className="text-xl font-light">About me</p>
       </div>
@@ -106,8 +107,9 @@ export const AboutMe = () => {
           className="object-cover"
         />
       </div>
-      <div className="absolute z-20 inset-0 bg-[url('/bgsec.png')] bg-cover bg-center mix-blend-soft-light" />
-      <div className="absolute z-20 inset-0 noise bg-cover bg-center mix-blend-soft-light" />
+      <div className="absolute z-20 inset-0 bg-[url('/bgsec.png')] bg-cover bg-center mix-blend-soft-light">
+        <div className="noise mix-blend-soft-light" />
+      </div>
     </section>
   );
 };
