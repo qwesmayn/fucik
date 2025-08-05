@@ -50,7 +50,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover rounded-[10px] group-hover:opacity-30 transition-opacity duration-300 "
+          className="rounded-[10px] group-hover:opacity-30 transition-opacity duration-300 "
         />
         <div className="hover:opacity-100 opacity-0 transition-opacity duration-300 absolute top-0 left-0 w-full h-full flex items-center justify-center gap-5">
           <p className="font-outfit text-[35px] uppercase">View more</p>
