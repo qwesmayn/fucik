@@ -21,6 +21,7 @@ export default async function ProjectPage({
             tools={["Blender", "Photoshop"]}
           />
           <GalleryProject
+            title="3D Motion Designer"
             firstImage={first}
             secondImage={second}
             mainImage={main}
