@@ -19,7 +19,7 @@ const projectSchema = z.object({
   url: z
     .string()
     .refine((val) => !val || /^https?:\/\//.test(val), "Некорректный URL"),
-  position: z.string().transform(val => parseInt(val, 10)),
+  position: z.number(),
   technologies: z.array(z.string()).min(1, "Добавьте хотя бы одну технологию"),
   files: z.array(z.instanceof(File)),
 });
@@ -244,6 +244,7 @@ export const ProjectForm: FC<ProjectFormProps> = ({
                 render={({ field }) => (
                   <select
                     {...field}
+                    onChange={(e) => field.onChange(parseInt(e.target.value, 10))}
                     className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:border-white/30 focus:outline-none"
                   >
                     <option value="0" className="text-white bg-black">
