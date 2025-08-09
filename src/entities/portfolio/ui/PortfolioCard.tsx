@@ -7,6 +7,7 @@ import { cn } from "@/shared/lib/utils";
 import { ToolsList } from "./ToolsList";
 
 interface PortfolioCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  projectId: number;
   image: string | StaticImageData;
   title: string;
   tools: string[];
@@ -14,10 +15,11 @@ interface PortfolioCardProps extends React.HTMLAttributes<HTMLDivElement> {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   index: number;
-  hoveredIndex: number | null;
+  hoveredIndex?: number | null;
 }
 
 export const PortfolioCard: FC<PortfolioCardProps> = ({
+  projectId,
   image,
   title,
   tools,
@@ -28,12 +30,17 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
   hoveredIndex,
 }) => {
   return (
-    <div className={cn("relative flex flex-col gap-[25px] group mb-[115px] transition-al duration-700", hoveredIndex === index  && "mb-[50px]")}>
+    <div
+      className={cn(
+        "relative flex flex-col gap-[25px] group mb-[115px] transition-al duration-700",
+        hoveredIndex === index && "mb-[50px]"
+      )}
+    >
       <Link
-        href={pageConfig.project + "/" + title}
+        href={onMouseEnter ? pageConfig.project + "/" + projectId : "#"}
         className={cn(
           "cursor-pointer relative w-full transition-normal duration-700 rounded-[10px] border border-white/10",
-          hoveredIndex === index 
+          hoveredIndex === index
             ? "h-[479px]"
             : hoveredIndex === index - 1 ||
               (hoveredIndex === 3 && index === 2) ||
@@ -50,17 +57,23 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="rounded-[10px] group-hover:opacity-30 transition-opacity duration-300 "
+          className={cn(
+            "rounded-[10px] object-cover transition-opacity duration-300",
+            onMouseEnter && "group-hover:opacity-30"
+          )}
         />
-        <div className="hover:opacity-100 opacity-0 transition-opacity duration-300 absolute top-0 left-0 w-full h-full flex items-center justify-center gap-5">
-          <p className="font-outfit text-[35px] uppercase">View more</p>
-          <CircleArrowRight size={32} />
-        </div>
+        {onMouseEnter && (
+          <div className="hover:opacity-100 opacity-0 transition-opacity duration-300 absolute top-0 left-0 w-full h-full flex items-center justify-center gap-5">
+            <p className="font-outfit text-[35px] uppercase">View more</p>
+            <CircleArrowRight size={32} />
+          </div>
+        )}
       </Link>
       <div
         className={cn(
           "absolute bottom-0 left-0 translate-y-[75px] flex items-center gap-[10px] transition-all duration-700",
-          hoveredIndex === index && "absolute bottom-[25px] left-[25px] translate-y-0"
+          hoveredIndex === index &&
+            "absolute bottom-[25px] left-[25px] translate-y-0"
         )}
       >
         <ToolsList tools={tools} />

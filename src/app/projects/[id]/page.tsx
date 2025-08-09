@@ -1,8 +1,6 @@
 import { AboutProject } from "@/widgets/Project/ui/AboutProject";
-import first from "@/shared/assets/img/first.png";
-import second from "@/shared/assets/img/second.png";
-import main from "@/shared/assets/img/main.png";
 import { GalleryProject } from "@/widgets/Project/ui/GalleryProject";
+import { getProjectById } from "@/entities/portfolio/api/getProjectById";
 
 export default async function ProjectPage({
   params,
@@ -10,21 +8,34 @@ export default async function ProjectPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const project = await getProjectById(id);
 
   return (
     <main className="relative">
       <section className="pt-[72px] pb-[170px] max-w-[1800px] mx-auto">
         <div className="flex flex-col gap-15">
           <AboutProject
-            title="3D Motion Designer"
-            description="I'm a 3D motion designer focused on delivering isometric graphics, realistic renders, promo visuals, and UI-integrated 3D content. Whether you need visuals for your website, product launch, or digital branding— I’ll take it from idea to final delivery with clarity and purpose."
-            tools={["Blender", "Photoshop"]}
+            title={project.title}
+            description={project.description}
+            tools={project.technologies}
           />
           <GalleryProject
-            title="3D Motion Designer"
-            firstImage={first}
-            secondImage={second}
-            mainImage={main}
+            title={project.title}
+            firstImage={
+              project.files?.[0]
+                ? process.env.NEXT_PUBLIC_API_URL + project.files[0]
+                : "https://placehold.co/586x684"
+            }
+            secondImage={
+              project.files?.[1]
+                ? process.env.NEXT_PUBLIC_API_URL + project.files[1]
+                : "https://placehold.co/587x685"
+            }
+            mainImage={
+              project.files?.[2]
+                ? process.env.NEXT_PUBLIC_API_URL + project.files[2]
+                : "https://placehold.co/1190x1390"
+            }
           />
         </div>
       </section>

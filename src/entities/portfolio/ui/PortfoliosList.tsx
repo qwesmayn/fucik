@@ -3,11 +3,11 @@
 import { FC, useState } from "react";
 import { PortfolioCard } from "./PortfolioCard";
 import { cn } from "@/shared/lib/utils";
-import { Portfolio } from "@/entities/portfolio";
+import { IProject } from "../model/IProject.interface";
 
 interface PortfoliosListProps {
   type: "home" | "projects";
-  portfolio: Portfolio[];
+  portfolio: IProject[];
 }
 
 export const PortfoliosList: FC<PortfoliosListProps> = ({
@@ -39,9 +39,14 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
         {portfolio1.map((item) => (
           <PortfolioCard
             key={item.id}
-            image={item.image}
+            projectId={item.id}
+            image={
+              item.files?.[0]
+                ? process.env.NEXT_PUBLIC_IMG + item.files[0]
+                : "https://placehold.co/875x321"
+            }
             title={item.title}
-            tools={item.tools}
+            tools={item.technologies}
             index={item.id}
             hoveredIndex={hoveredIndex}
             onMouseEnter={() => handleMouseEnter(item.id)}
@@ -53,10 +58,15 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
         {portfolio2.map((item) => (
           <PortfolioCard
             key={item.id}
-            image={item.image}
+            projectId={item.id}
+            image={
+              item.files?.[0]
+                ? process.env.NEXT_PUBLIC_IMG + item.files[0]
+                : "https://placehold.co/875x321"
+            }
             title={item.title}
-            tools={item.tools}
-            index={item.id}
+            tools={item.technologies}
+            index={item.id + 1}
             hoveredIndex={hoveredIndex}
             onMouseEnter={() => handleMouseEnter(item.id)}
             onMouseLeave={handleMouseLeave}

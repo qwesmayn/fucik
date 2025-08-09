@@ -3,9 +3,13 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { pageConfig } from "@/shared/config/page.config";
 import { PortfoliosList } from "@/entities/portfolio";
-import { portfolioConfig } from "@/entities/portfolio/conifg/portfolio.config";
+import { IProject } from "@/entities/portfolio/model/IProject.interface";
 
-export const Portfolio: FC = () => {
+interface PortfolioProps {
+  projects: IProject[];
+}
+
+export const Portfolio: FC<PortfolioProps> = ({ projects }) => {
   return (
     <section
       id="portfolio"
@@ -15,7 +19,7 @@ export const Portfolio: FC = () => {
         <p className="text-xl font-light">Portfolio</p>
       </div>
       <div className="relative z-30">
-        <PortfoliosList type="home" portfolio={portfolioConfig} />
+        <PortfoliosList type="home" portfolio={projects} />
       </div>
       <div className="absolute bottom-0 left-0 w-full flex justify-center px-15">
         <Link

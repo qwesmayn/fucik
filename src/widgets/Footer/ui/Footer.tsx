@@ -8,8 +8,8 @@ import linkedin from "@/shared/assets/icons/in.png";
 
 export const Footer: FC = () => {
   return (
-    <footer className="px-15 pt-15 pb-[100px] border-t border-white/10">
-      <div className="relative flex flex-wrap justify-center gap-[90px] overflow-hidden">
+    <footer className="px-15 pt-15 pb-[100px] border-t border-white/10 overflow-hidden">
+      <div className="relative flex flex-wrap justify-center gap-[90px]">
         <div className="relative z-30 flex flex-col">
           <div className="bg-[#FF3C00] text-center py-[1px] px-[5px] w-max rounded-[5px] text-[#0B0B0B]">
             <p className="text-xl font-light">Contact</p>

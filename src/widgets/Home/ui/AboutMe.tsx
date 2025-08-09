@@ -13,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 export const AboutMe = () => {
   const ref = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const borderRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const image = imageRef.current;
