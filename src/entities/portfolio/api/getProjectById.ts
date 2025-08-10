@@ -9,7 +9,7 @@ export const getProjectById = async (id: string) => {
       },
     });
 
-    return response;
+    return response.json();
   } catch (error) {
     notFound();
   }

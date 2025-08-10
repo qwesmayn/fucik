@@ -20,5 +20,5 @@ export const updateProject = async (id: number, project: IProject, files?: File[
     method: "PUT",
     body: formData,
   });
-  return response;
+  return response.json();
 };

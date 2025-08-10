@@ -7,5 +7,5 @@ export const getAllProjects = async (): Promise<IProject[]> => {
       revalidate: 60,
     },
   });
-  return response;
+  return response.json();
 };

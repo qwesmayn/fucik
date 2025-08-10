@@ -12,5 +12,5 @@ export const deleteProject = async (id: number) => {
       Cookie: cookieStore.toString(),
     },
   });
-  return response;
+  return response.json();
 };

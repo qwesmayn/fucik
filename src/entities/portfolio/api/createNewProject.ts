@@ -22,5 +22,5 @@ export const createNewProject = async (project: IProject, files?: File[]) => {
     method: "POST",
     body: formData,
   });
-  return response;
+  return response.json();
 };

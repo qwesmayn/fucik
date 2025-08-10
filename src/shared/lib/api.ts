@@ -13,5 +13,5 @@ export const fetchBase = async (url: string, options?: RequestInit) => {
     notFound();
   }
 
-  return response.json();
+  return response;
 };
