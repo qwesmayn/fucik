@@ -1,6 +1,7 @@
 import { fetchBase } from "@/shared/lib/api";
+import { IProject } from "../model/IProject.interface";
 
-export const getAllProjects = async () => {
+export const getAllProjects = async (): Promise<IProject[]> => {
   const response = await fetchBase("projects", {
     next: {
       revalidate: 60,

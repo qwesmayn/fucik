@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Footer } from "@/widgets/Footer";
 import { Header } from "@/widgets/Header";
 import { QueryProvider } from "./_providers/query-provide/QueryProvide";
+import { ToastContainer } from 'react-toastify';
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -36,6 +37,7 @@ export default function RootLayout({
           <Header />
           <main className="overflow-hidden">{children}</main>
           <Footer />
+          <ToastContainer />
         </QueryProvider>
       </body>
     </html>

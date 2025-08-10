@@ -23,17 +23,17 @@ export default async function ProjectPage({
             title={project.title}
             firstImage={
               project.files?.[0]
-                ? process.env.NEXT_PUBLIC_API_URL + project.files[0]
+                ? process.env.NEXT_PUBLIC_IMG + project.files[0]
                 : "https://placehold.co/586x684"
             }
             secondImage={
               project.files?.[1]
-                ? process.env.NEXT_PUBLIC_API_URL + project.files[1]
+                ? process.env.NEXT_PUBLIC_IMG + project.files[1]
                 : "https://placehold.co/587x685"
             }
             mainImage={
               project.files?.[2]
-                ? process.env.NEXT_PUBLIC_API_URL + project.files[2]
+                ? process.env.NEXT_PUBLIC_IMG + project.files[2]
                 : "https://placehold.co/1190x1390"
             }
           />

@@ -1,11 +1,7 @@
-"use server";
-
 import { fetchBase } from "@/shared/lib/api";
 import { IProject } from "../model/IProject.interface";
-import { cookies } from "next/headers";
 
 export const updateProject = async (id: number, project: IProject, files?: File[]) => {
-  const cookieStore = await cookies();
 
   const formData = new FormData();
   formData.append("title", project.title);
@@ -23,9 +19,6 @@ export const updateProject = async (id: number, project: IProject, files?: File[
   const response = await fetchBase(`projects/${id}`, {
     method: "PUT",
     body: formData,
-    headers: {
-      Cookie: cookieStore.toString(),
-    },
   });
   return response;
 };

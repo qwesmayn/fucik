@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from "react";
 import Image from "next/image";
 import { SocialCard } from "@/shared/ui/social-card";
@@ -5,9 +7,13 @@ import behance from "@/shared/assets/icons/behance.png";
 import instagram from "@/shared/assets/icons/inst.png";
 import youtube from "@/shared/assets/icons/youtube.png";
 import linkedin from "@/shared/assets/icons/in.png";
+import { usePathname } from "next/navigation";
+import { pageConfig } from "@/shared/config/page.config";
 
 export const Footer: FC = () => {
-  return (
+  const pathname = usePathname();
+
+  return pathname === pageConfig.login ? null : (
     <footer className="px-15 pt-15 pb-[100px] border-t border-white/10 overflow-hidden">
       <div className="relative flex flex-wrap justify-center gap-[90px]">
         <div className="relative z-30 flex flex-col">

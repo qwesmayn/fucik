@@ -7,7 +7,7 @@ import { ProjectCard } from "@/widgets/Admin/ui/ProjectCard";
 import { ProjectForm } from "@/features/project/ui/ProjectForm";
 import { ProjectTopPosition } from "@/features/project/ui/ProjectTopPosition";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { getLatestProjects } from "@/entities/portfolio/api/getLatestProjects";
+import { getAllProjects } from "@/entities/portfolio/api/getAllProjects";
 import { createNewProject } from "@/entities/portfolio/api/createNewProject";
 import { updateProject } from "@/entities/portfolio/api/updateProject";
 import { deleteProject } from "@/entities/portfolio/api/deleteProject";
@@ -15,9 +15,9 @@ import { toast } from "react-toastify";
 
 export default function Admin() {
   const queryClient = useQueryClient();
-  const { data: projects } = useQuery({
-    queryKey: ["projectsLatest"],
-    queryFn: getLatestProjects,
+  const { data: projects, isLoading } = useQuery({
+    queryKey: ["projectsAll"],
+    queryFn: getAllProjects,
     initialData: [],
   });
 
@@ -49,7 +49,8 @@ export default function Admin() {
 
   const handleCreateProject = async (data: IProject, files?: File[]) => {
     await createNewProject(data, files);
-    queryClient.invalidateQueries({ queryKey: ["projectsLatest"] });
+    await queryClient.refetchQueries({ queryKey: ["projectsAll"] });
+    await queryClient.refetchQueries({ queryKey: ["topProjects"] });
     toast.success("Проект создан");
   };
 
@@ -62,19 +63,34 @@ export default function Admin() {
     };
 
     await updateProject(editingProject.id, updatedProject, files);
-    queryClient.invalidateQueries({ queryKey: ["projectsLatest"] });
+    await queryClient.refetchQueries({ queryKey: ["projectsAll"] });
+    await queryClient.refetchQueries({ queryKey: ["topProjects"] });
     toast.success("Проект обновлен");
     setEditingProject(null);
   };
 
   const handleDeleteProject = async (id: number) => {
     await deleteProject(id);
-    queryClient.invalidateQueries({ queryKey: ["projectsLatest"] });
+    await queryClient.refetchQueries({ queryKey: ["projectsAll"] });
+    await queryClient.refetchQueries({ queryKey: ["topProjects"] });
     toast.success("Проект удален");
   };
 
-  const handleUpdateProjectsOrder = (updatedProjects: IProject[]) => {
-    console.log(updatedProjects);
+  const handleUpdateProjectsOrder = async (updatedProjects: IProject[]) => {
+    await Promise.all(
+      updatedProjects.map(async (project, index) => {
+        if (project.position !== index) {
+          await updateProject(project.id, {
+            ...project,
+            position: index + 1,
+          });
+        }
+      })
+    );
+
+    await queryClient.refetchQueries({ queryKey: ["projectsAll"] });
+    await queryClient.refetchQueries({ queryKey: ["topProjects"] });
+    toast.success("Порядок проектов обновлен");
   };
 
   const openCreateForm = () => {
@@ -173,7 +189,6 @@ export default function Admin() {
         isOpen={isFormOpen}
       />
       <ProjectTopPosition
-        projects={projects}
         isOpen={isEditPosition}
         onClose={() => setIsEditPosition(false)}
         onUpdateOrder={handleUpdateProjectsOrder}

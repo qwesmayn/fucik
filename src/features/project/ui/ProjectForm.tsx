@@ -326,7 +326,7 @@ export const ProjectForm: FC<ProjectFormProps> = ({
 
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Изображение мини
+                Файлы проекта
               </label>
               <Controller
                 name="files"

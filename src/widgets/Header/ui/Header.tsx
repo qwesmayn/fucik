@@ -13,7 +13,9 @@ export const Header: FC = () => {
     router.back();
   };
 
-  return pathname === pageConfig.home ? null : (
+  return pathname === pageConfig.home ||
+    pathname === pageConfig.login ||
+    pathname === pageConfig.admin ? null : (
     <header className="w-full bg-[#070707]/25 text-center border-b border-white/10">
       <div className="flex items-center px-[66px] min-h-[67px]">
         <button

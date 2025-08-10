@@ -18,6 +18,8 @@ import {
 } from "@dnd-kit/sortable";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { useQuery } from "@tanstack/react-query";
+import { getLatestProjects } from "@/entities/portfolio/api/getLatestProjects";
 
 interface SortableProjectCardProps {
   project: IProject;
@@ -48,8 +50,8 @@ const SortableProjectCard: FC<SortableProjectCardProps> = ({
         key={project.id}
         projectId={project.id}
         image={
-          project.files?.[2]
-            ? process.env.NEXT_PUBLIC_IMG + project.files[2]
+          project.files?.[0]
+            ? process.env.NEXT_PUBLIC_IMG + project.files[0]
             : "https://placehold.co/875x321"
         }
         title={project.title}
@@ -61,25 +63,30 @@ const SortableProjectCard: FC<SortableProjectCardProps> = ({
 };
 
 interface ProjectTopPositionProps {
-  projects: IProject[];
   isOpen: boolean;
   onClose: () => void;
   onUpdateOrder: (projects: IProject[]) => void;
 }
 
 export const ProjectTopPosition: FC<ProjectTopPositionProps> = ({
-  projects,
   isOpen,
   onClose,
   onUpdateOrder,
 }) => {
-  const [localProjects, setLocalProjects] = useState<IProject[]>(projects);
+  const topProjects = useQuery({
+    queryKey: ["topProjects"],
+    queryFn: getLatestProjects,
+  });
+
+  const [localProjects, setLocalProjects] = useState<IProject[]>(
+    topProjects.data || []
+  );
 
   useEffect(() => {
     if (!isOpen) {
-      setLocalProjects(projects);
+      setLocalProjects(topProjects.data || []);
     }
-  }, [projects, isOpen]);
+  }, [topProjects.data, isOpen]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
