@@ -6,7 +6,7 @@ interface ToolsListProps {
 
 export const ToolsList: FC<ToolsListProps> = ({ tools }) => {
   return (
-    <div className="flex gap-[10px]">
+    <div className="flex flex-wrap gap-[10px]">
       {tools.map((tool, index) => (
         <div
           key={index}

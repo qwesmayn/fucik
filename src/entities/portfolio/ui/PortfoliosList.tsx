@@ -41,8 +41,8 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
             key={item.id}
             projectId={item.id}
             image={
-              item.files?.[0]
-                ? process.env.NEXT_PUBLIC_IMG + item.files[0]
+              item.coverImage
+                ? process.env.NEXT_PUBLIC_IMG + item.coverImage
                 : "https://placehold.co/875x321"
             }
             title={item.title}
@@ -60,8 +60,8 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
             key={item.id}
             projectId={item.id}
             image={
-              item.files?.[0]
-                ? process.env.NEXT_PUBLIC_IMG + item.files[0]
+              item.coverImage
+                ? process.env.NEXT_PUBLIC_IMG + item.coverImage
                 : "https://placehold.co/875x321"
             }
             title={item.title}

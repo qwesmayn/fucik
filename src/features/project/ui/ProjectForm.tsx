@@ -22,13 +22,14 @@ const projectSchema = z.object({
   position: z.number(),
   technologies: z.array(z.string()).min(1, "Добавьте хотя бы одну технологию"),
   files: z.array(z.instanceof(File)),
+  coverImage: z.instanceof(File),
 });
 
 type ProjectFormData = z.infer<typeof projectSchema>;
 
 interface ProjectFormProps {
   project?: IProject | null;
-  onSubmit: (data: IProject, files?: File[]) => void;
+  onSubmit: (data: IProject, coverImage?: File, files?: File[]) => void;
   onClose: () => void;
   isOpen: boolean;
 }
@@ -41,6 +42,7 @@ export const ProjectForm: FC<ProjectFormProps> = ({
 }) => {
   const [techInput, setTechInput] = useState("");
   const [files, setFiles] = useState<File[]>([]);
+  const [coverImage, setCoverImage] = useState<File | undefined>(undefined);
 
   const {
     control,
@@ -58,6 +60,7 @@ export const ProjectForm: FC<ProjectFormProps> = ({
       position: 0,
       technologies: [],
       files: [],
+      coverImage: undefined,
     },
   });
 
@@ -71,7 +74,8 @@ export const ProjectForm: FC<ProjectFormProps> = ({
         url: project.url || "",
         position: project.position || 0,
         technologies: project.technologies,
-        files: [], 
+        files: [],
+        coverImage: undefined,
       });
       setFiles([]);
     } else {
@@ -82,8 +86,10 @@ export const ProjectForm: FC<ProjectFormProps> = ({
         position: 0,
         technologies: [],
         files: [],
+        coverImage: undefined,
       });
       setFiles([]);
+      setCoverImage(undefined);
     }
     setTechInput("");
   }, [project, isOpen, reset]);
@@ -96,13 +102,13 @@ export const ProjectForm: FC<ProjectFormProps> = ({
       url: data.url.trim() || null,
       position: data.position,
       technologies: data.technologies,
-      files: data.files.map(file => file.name),
+      files: data.files.map((file) => file.name),
       createdAt: project?.createdAt || new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
-    
-    onSubmit(projectData, data.files);
-    onClose();
+
+    onSubmit(projectData, data.coverImage, data.files);
+    // onClose();  
   };
 
   const addTechnology = () => {
@@ -149,10 +155,7 @@ export const ProjectForm: FC<ProjectFormProps> = ({
             </button>
           </div>
 
-          <form
-            onSubmit={handleSubmit(onFormSubmit)}
-            className="space-y-4"
-          >
+          <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Название проекта
@@ -244,7 +247,9 @@ export const ProjectForm: FC<ProjectFormProps> = ({
                 render={({ field }) => (
                   <select
                     {...field}
-                    onChange={(e) => field.onChange(parseInt(e.target.value, 10))}
+                    onChange={(e) =>
+                      field.onChange(parseInt(e.target.value, 10))
+                    }
                     className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:border-white/30 focus:outline-none"
                   >
                     <option value="0" className="text-white bg-black">
@@ -322,6 +327,29 @@ export const ProjectForm: FC<ProjectFormProps> = ({
                   {errors.technologies.message}
                 </p>
               )}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Обложка проекта
+              </label>
+              <Controller
+                name="coverImage"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    type="file"
+                    onChange={(e) => {
+                      const selectedFile = e.target.files?.[0];
+                      if (selectedFile) {
+                        setCoverImage(selectedFile);
+                        field.onChange(selectedFile);
+                      }
+                    }}
+                    className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-white/30 focus:outline-none"
+                  />
+                )}
+              />
             </div>
 
             <div>

@@ -47,14 +47,14 @@ export default function Admin() {
     setFilteredProjects(filtered);
   }, [projects, searchQuery]);
 
-  const handleCreateProject = async (data: IProject, files?: File[]) => {
-    await createNewProject(data, files);
+  const handleCreateProject = async (data: IProject, coverImage?: File, files?: File[]) => {
+    await createNewProject(data, coverImage, files);
     await queryClient.refetchQueries({ queryKey: ["projectsAll"] });
     await queryClient.refetchQueries({ queryKey: ["topProjects"] });
     toast.success("Проект создан");
   };
 
-  const handleUpdateProject = async (data: IProject, files?: File[]) => {
+  const handleUpdateProject = async (data: IProject, coverImage?: File, files?: File[]) => {
     if (!editingProject) return;
 
     const updatedProject: IProject = {
@@ -62,7 +62,7 @@ export default function Admin() {
       ...data,
     };
 
-    await updateProject(editingProject.id, updatedProject, files);
+    await updateProject(editingProject.id, updatedProject, coverImage, files);
     await queryClient.refetchQueries({ queryKey: ["projectsAll"] });
     await queryClient.refetchQueries({ queryKey: ["topProjects"] });
     toast.success("Проект обновлен");

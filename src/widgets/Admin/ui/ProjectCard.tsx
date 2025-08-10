@@ -26,8 +26,8 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         <div className="relative w-32 h-38 ">
           <Image
             src={
-              project.files?.[0]
-                ? process.env.NEXT_PUBLIC_IMG + project.files?.[0]
+              project.coverImage
+                ? process.env.NEXT_PUBLIC_IMG + project.coverImage
                 : "https://placehold.co/875x321"
             }
             alt={project.title}

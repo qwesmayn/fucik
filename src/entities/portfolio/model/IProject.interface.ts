@@ -5,6 +5,7 @@ export interface IProject {
   technologies: string[];
   url: string | null;
   position: number | null;
+  coverImage?: string | null;
   files: string[] | null;
   createdAt: string;
   updatedAt: string;

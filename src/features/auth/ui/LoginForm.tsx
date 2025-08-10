@@ -41,9 +41,7 @@ export const LoginForm = () => {
       const response = await login(data.username, data.password);
 
       if (response.ok) {
-        const result = await response.json();
-        document.cookie = `access_token=${result.access_token}; path=/; secure; samesite=strict`;
-        router.push("/admin");
+        router.push(pageConfig.admin);
       } else {
         const error = await response.json();
         setErrorMessage(error.message || "Ошибка авторизации");

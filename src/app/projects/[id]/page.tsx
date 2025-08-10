@@ -21,20 +21,10 @@ export default async function ProjectPage({
           />
           <GalleryProject
             title={project.title}
-            firstImage={
-              project.files?.[0]
-                ? process.env.NEXT_PUBLIC_IMG + project.files[0]
-                : "https://placehold.co/586x684"
-            }
-            secondImage={
-              project.files?.[1]
-                ? process.env.NEXT_PUBLIC_IMG + project.files[1]
-                : "https://placehold.co/587x685"
-            }
-            mainImage={
-              project.files?.[2]
-                ? process.env.NEXT_PUBLIC_IMG + project.files[2]
-                : "https://placehold.co/1190x1390"
+            files={
+              project.files?.map(
+                (file: string) => process.env.NEXT_PUBLIC_IMG + file
+              ) || []
             }
           />
         </div>

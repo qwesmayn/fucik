@@ -79,7 +79,7 @@ export const MainBlock = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen px-15 pb-10 flex flex-col justify-between border-b border-white/10">
+    <section className="relative min-h-screen px-15 pb-10 flex flex-col justify-between">
       <div className="flex flex-col relative z-30">
         <div className="pt-[157px]">
           <Image
@@ -132,6 +132,8 @@ export const MainBlock = () => {
         ref={refCircle}
         className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat w-[605px] h-[605px] left-[20%] translate-y-[5%]"
       />
+      <div className="border-b border-white/10 -bottom-10 inset-x-0 absolute z-50" />
+
       <div className="noise mix-blend-soft-light" />
     </section>
   );
