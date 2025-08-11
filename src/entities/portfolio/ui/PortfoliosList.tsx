@@ -47,6 +47,7 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
             }
             title={item.title}
             tools={item.technologies}
+            link={item.url ?? undefined}
             index={type === "home" ? item.position || i : i}
             hoveredIndex={hoveredIndex}
             onMouseEnter={() => handleMouseEnter(type === "home" ? item.position || i : i)}
@@ -66,6 +67,7 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
             }
             title={item.title}
             tools={item.technologies}
+            link={item.url ?? undefined}
             index={type === "home" ? item.position || i : i + 5}
             hoveredIndex={hoveredIndex}
             onMouseEnter={() =>

@@ -11,6 +11,7 @@ interface PortfolioCardProps extends React.HTMLAttributes<HTMLDivElement> {
   image: string | StaticImageData;
   title: string;
   tools: string[];
+  link?: string;
   isHovered?: boolean;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
@@ -23,6 +24,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
   image,
   title,
   tools,
+  link,
   className,
   onMouseEnter,
   onMouseLeave,
@@ -37,13 +39,13 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
       )}
     >
       <Link
-        href={onMouseEnter ? pageConfig.project + "/" + projectId : ""}
+        href={onMouseEnter ? link ?? pageConfig.project + "/" + projectId : ""}
         className={cn(
           "cursor-pointer relative w-full transition-normal duration-700 rounded-[10px] border border-white/10",
           hoveredIndex === index
             ? "h-[479px]"
             : hoveredIndex === index - 1 ||
-              (hoveredIndex === 3 && index === 2) ||
+              (hoveredIndex === 4 && index === 3) ||
               (hoveredIndex === 8 && index === 7)
             ? "h-[228px]"
             : "h-[321px]",
