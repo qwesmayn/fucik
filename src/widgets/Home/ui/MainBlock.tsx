@@ -79,7 +79,7 @@ export const MainBlock = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen px-15 pb-10 flex flex-col justify-between">
+    <section className="relative min-h-screen xl:px-15 px-5 pb-10 flex flex-col justify-between">
       <div className="flex flex-col relative z-30">
         <div className="pt-[157px]">
           <Image
@@ -95,7 +95,7 @@ export const MainBlock = () => {
       <div className="relative z-30 space-y-[47px] max-w-[1178px]">
         <div className="flex items-center gap-4">
           <Link href="#about-me">
-            <Button className="bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light text-lg backdrop-blur-2xl">
+            <Button className=" bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light text-lg backdrop-blur-2xl">
               About me
             </Button>
           </Link>
@@ -105,7 +105,7 @@ export const MainBlock = () => {
             </Button>
           </Link>
         </div>
-        <div className="max-w-[1178px] w-full grid grid-cols-2 gap-10 font-light text-xl text-white/50 *:border-l-2 *:border-white *:pl-[15px]">
+        <div className="max-w-[1178px] w-full grid grid-cols-1 lg:grid-cols-2 gap-10 font-light text-xl text-[#818181] *:border-l-2 *:border-white *:pl-[15px]">
           <div>
             <p>
               Xromosev came from constantly digging through old projects
@@ -123,14 +123,14 @@ export const MainBlock = () => {
         </div>
       </div>
 
-      <div className="absolute top-[28%] right-[0] translate-x-[50%] hover:rotate-[6deg] transition-all duration-1000">
-        <Image src="/x.webp" alt="x" priority width={942} height={725} />
+      <div className="absolute md:block hidden 3xl:w-[942px] 3xl:h-[68%] xl:w-[842px] xl:h-[55%] w-[642px] h-[425px] top-[28%] right-[0] translate-x-[50%] hover:rotate-[6deg] transition-all duration-1000">
+        <Image src="/x.webp" alt="x" priority fill sizes="100vw" />
       </div>
 
-      <div className="absolute bg-[#FF3C00] w-[761px] h-[761px] rounded-full left-[15%] translate-y-[-30%] blur-[50px]" />
+      <div className="absolute bg-[#FF3C00] xl:w-[761px] xl:h-[761px] sm:w-[500px] sm:h-[500px] w-[300px] h-[300px] rounded-full left-[15%] translate-y-[-30%] blur-[50px]" />
       <div
         ref={refCircle}
-        className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat w-[605px] h-[605px] left-[20%] translate-y-[5%]"
+        className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat xl:w-[605px] xl:h-[605px] sm:w-[400px] sm:h-[400px] w-[300px] h-[300px] left-[20%] translate-y-[5%]"
       />
       <div className="border-b border-white/10 -bottom-10 inset-x-0 absolute z-50" />
 

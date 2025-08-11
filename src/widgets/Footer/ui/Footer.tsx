@@ -14,19 +14,25 @@ export const Footer: FC = () => {
   const pathname = usePathname();
 
   return pathname === pageConfig.login ? null : (
-    <footer className="px-15 pt-15 pb-[100px] border-t border-white/10 overflow-hidden">
-      <div className="relative flex flex-wrap justify-center gap-[90px]">
-        <div className="relative z-30 flex flex-col">
-          <div className="bg-[#FF3C00] text-center py-[1px] px-[5px] w-max rounded-[5px] text-[#0B0B0B]">
+    <footer className="xl:px-15 px-5 pt-10 xl:pt-15 pb-[60px] xl:pb-[100px] border-t border-white/10 overflow-hidden">
+      <div className="relative flex flex-col xl:flex-row xl:flex-wrap xl:justify-center gap-[40px] xl:gap-[90px]">
+        <div className="relative z-30 flex flex-col items-center xl:items-start">
+          <div className="bg-[#FF3C00] text-center py-[1px] px-[5px] w-max rounded-[5px] text-[#0B0B0B] mb-4">
             <p className="text-xl font-light">Contact</p>
           </div>
           <div>
-            <Image src="/xmln.png" alt="xmln" width={324} height={277} />
+            <Image 
+              src="/xmln.png" 
+              alt="xmln" 
+              width={324} 
+              height={277}
+              className="w-[250px] h-auto xl:w-[324px]"
+            />
           </div>
         </div>
 
-        <div className="relative z-30 flex flex-col gap-[145px]">
-          <div className="space-y-10">
+        <div className="relative z-30 flex flex-col gap-[60px] xl:gap-[145px] items-center xl:items-start text-center xl:text-left">
+          <div className="space-y-8 xl:space-y-10">
             <div className="space-y-[6px] font-outfit">
               <p>Email</p>
               <p className="text-white/85 font-extralight">

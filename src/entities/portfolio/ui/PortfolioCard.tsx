@@ -32,8 +32,8 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
   return (
     <div
       className={cn(
-        "relative flex flex-col gap-[25px] group mb-[115px] transition-al duration-700",
-        hoveredIndex === index && "mb-[50px]"
+        "relative flex flex-col gap-[15px] md:gap-[25px] group mb-[40px] md:mb-[132px] transition-all duration-700",
+        hoveredIndex === index && "md:mb-[50px]"
       )}
     >
       <Link
@@ -71,9 +71,10 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
       </Link>
       <div
         className={cn(
-          "absolute bottom-0 left-0 translate-y-[75px] flex items-center gap-[10px] transition-all duration-700",
+          "relative md:absolute flex flex-wrap items-center gap-[10px] transition-all duration-700",
+          "md:bottom-0 md:left-0 md:translate-y-[75px]",
           hoveredIndex === index &&
-            "absolute bottom-[25px] left-[25px] translate-y-0"
+            "md:bottom-[25px] md:left-[25px] md:translate-y-0"
         )}
       >
         <ToolsList tools={tools} />

@@ -51,6 +51,7 @@ export default function Admin() {
     await createNewProject(data, coverImage, files);
     await queryClient.refetchQueries({ queryKey: ["projectsAll"] });
     await queryClient.refetchQueries({ queryKey: ["topProjects"] });
+
     toast.success("Проект создан");
   };
 

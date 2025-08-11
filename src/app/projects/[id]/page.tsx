@@ -11,7 +11,7 @@ export default async function ProjectPage({
   const project = await getProjectById(id);
 
   return (
-    <main className="relative">
+    <main className="relative xl:px-15 px-5">
       <section className="pt-[72px] pb-[170px] max-w-[1800px] mx-auto">
         <div className="flex flex-col gap-15">
           <AboutProject

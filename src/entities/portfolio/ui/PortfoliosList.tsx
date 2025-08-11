@@ -34,9 +34,9 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
       : portfolio.slice(0, Math.floor(portfolio.length / 2));
 
   return (
-    <div className="flex items-start gap-[50px]">
+    <div className="flex items-start gap-[50px] 2xl:flex-row flex-col">
       <div className={cn("grid grid-cols-1 w-full")}>
-        {portfolio1.map((item) => (
+        {portfolio1.map((item, i) => (
           <PortfolioCard
             key={item.id}
             projectId={item.id}
@@ -47,15 +47,15 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
             }
             title={item.title}
             tools={item.technologies}
-            index={item.position || 0}
+            index={type === "home" ? item.position || i : i}
             hoveredIndex={hoveredIndex}
-            onMouseEnter={() => handleMouseEnter(item.position || 0)}
+            onMouseEnter={() => handleMouseEnter(type === "home" ? item.position || i : i)}
             onMouseLeave={handleMouseLeave}
           />
         ))}
       </div>
       <div className="grid grid-cols-1 w-full">
-        {portfolio2.map((item) => (
+        {portfolio2.map((item, i) => (
           <PortfolioCard
             key={item.id}
             projectId={item.id}
@@ -66,9 +66,11 @@ export const PortfoliosList: FC<PortfoliosListProps> = ({
             }
             title={item.title}
             tools={item.technologies}
-            index={item.position || 0}
+            index={type === "home" ? item.position || i : i + 5}
             hoveredIndex={hoveredIndex}
-            onMouseEnter={() => handleMouseEnter(item.position || 0)}
+            onMouseEnter={() =>
+              handleMouseEnter(type === "home" ? item.position || i : i + 5)
+            }
             onMouseLeave={handleMouseLeave}
           />
         ))}

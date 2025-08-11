@@ -126,7 +126,7 @@ export const LoginForm = () => {
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-[#FF3C00] hover:bg-[#FF3C00]/80 disabled:bg-[#FF3C00]/50 disabled:cursor-not-allowed font-light text-lg transition-colors duration-300"
+            className="sm:w-full w-full bg-[#FF3C00] hover:bg-[#FF3C00]/80 disabled:bg-[#FF3C00]/50 disabled:cursor-not-allowed font-light text-lg transition-colors duration-300"
           >
             {isLoading ? "Вход..." : "Войти"}
           </Button>

@@ -8,7 +8,7 @@ export const createNewProject = async (project: IProject, coverImage?: File, fil
   formData.append("description", project.description);
   formData.append("technologies", JSON.stringify(project.technologies));
   formData.append("url", project.url || "");
-  formData.append("position", project.position?.toString() || "0");
+  formData.append("position", project.position?.toString() || "");
   
   if (coverImage) {
     formData.append("coverImage", coverImage);

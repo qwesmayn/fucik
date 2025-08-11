@@ -5,7 +5,7 @@ import { ButtonUpDown } from "@/shared/ui/button-up-down";
 export default async function ProjectsPage() {
   const projects = await getAllProjects();
   return (
-    <main className="relative">
+    <main className="relative xl:px-15 px-5">
       <section className="relative pt-[90px] pb-[170px] max-w-[1800px] min-h-screen mx-auto">
         <PortfoliosList type="projects" portfolio={projects} />
         <ButtonUpDown />

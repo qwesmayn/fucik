@@ -63,12 +63,12 @@ export const AboutMe = () => {
   return (
     <section
       id="about-me"
-      className="relative mt-[250px] mb-[195px] min-h-screen px-15 flex flex-col justify-between"
+      className="relative mt-[250px] mb-[195px] min-h-screen xl:px-15 px-5 flex flex-col justify-between"
     >
       <div className="bg-[#FF3C00] relative z-30 text-center py-[1px] px-[5px] mb-[195px] w-max rounded-[5px] text-[#0B0B0B]">
         <p className="text-xl font-light">About me</p>
       </div>
-      <div ref={ref} className="relative z-30 pl-[190px]">
+      <div ref={ref} className="relative z-30 lg:pl-[190px] pl-0">
         <div className="flex flex-col max-w-[1156px] w-full">
           <AboutCard
             title="3D Motion Designer"
@@ -94,7 +94,7 @@ export const AboutMe = () => {
       </div>
       <div
         ref={imageRef}
-        className="absolute right-[9%] top-[251px] w-[824px] h-[1051px] "
+        className="absolute 2xl:right-[9%] right-[0] top-[251px] w-[824px] h-[1051px] hidden lg:block"
       >
         <Image
           src="/radiance.webp"

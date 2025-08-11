@@ -5,6 +5,10 @@
   --foreground: #171717;
 }
 
+@theme {
+  --breakpoint-3xl: 107.5rem;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -59,7 +63,7 @@ body {
     background-repeat: no-repeat;
     opacity: 0.3;
     pointer-events: none;
-    animation: noise 1s steps(2) infinite;
+    animation: noise 1s steps(4) infinite;
   }
 
   .noise-footer {
