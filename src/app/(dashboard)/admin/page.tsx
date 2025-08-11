@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 
 export default function Admin() {
   const queryClient = useQueryClient();
-  const { data: projects, isLoading } = useQuery({
+  const { data: projects } = useQuery({
     queryKey: ["projectsAll"],
     queryFn: getAllProjects,
     initialData: [],

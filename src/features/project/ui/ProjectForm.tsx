@@ -21,15 +21,15 @@ const projectSchema = z.object({
     .refine((val) => !val || /^https?:\/\//.test(val), "Некорректный URL"),
   position: z.number(),
   technologies: z.array(z.string()).min(1, "Добавьте хотя бы одну технологию"),
-  files: z.array(z.instanceof(File)),
-  coverImage: z.instanceof(File),
+  files: z.array(z.instanceof(File)).optional(),
+  coverImage: z.instanceof(File).optional(),
 });
 
 type ProjectFormData = z.infer<typeof projectSchema>;
 
 interface ProjectFormProps {
   project?: IProject | null;
-  onSubmit: (data: IProject, coverImage?: File, files?: File[]) => void;
+  onSubmit: (data: IProject, coverImage?: File, files?: File[]) => Promise<void>;
   onClose: () => void;
   isOpen: boolean;
 }
@@ -102,13 +102,14 @@ export const ProjectForm: FC<ProjectFormProps> = ({
       url: data.url.trim() || null,
       position: data.position,
       technologies: data.technologies,
-      files: data.files.map((file) => file.name),
+      files: data.files?.map((file) => file.name) || [],
+      coverImage: data.coverImage?.name || "",
       createdAt: project?.createdAt || new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
 
     onSubmit(projectData, data.coverImage, data.files);
-    // onClose();  
+    onClose();  
   };
 
   const addTechnology = () => {
@@ -339,6 +340,7 @@ export const ProjectForm: FC<ProjectFormProps> = ({
                 render={({ field }) => (
                   <input
                     type="file"
+                    accept="image/*"
                     onChange={(e) => {
                       const selectedFile = e.target.files?.[0];
                       if (selectedFile) {
@@ -364,23 +366,17 @@ export const ProjectForm: FC<ProjectFormProps> = ({
                     <input
                       type="file"
                       multiple
-                      accept="image/*"
+                      accept="image/*,video/*"
                       onChange={(e) => {
                         const selectedFiles = Array.from(e.target.files || []);
-                        if (selectedFiles.length > 0) {
-                          setFiles(selectedFiles);
-                          field.onChange(selectedFiles);
-                        } else {
-                          setFiles([]);
-                          field.onChange([]);
-                        }
+                        setFiles(selectedFiles);
+                        field.onChange(selectedFiles);
                       }}
                       className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-white/30 focus:outline-none"
                     />
                     {files.length > 0 && (
                       <p className="text-sm text-gray-400 mt-1">
-                        Выбрано файлов: {files.length} (
-                        {files.map((f) => f.name).join(", ")})
+                        Выбрано файлов: {files.length} ({files.map((f) => f.name).join(", ")})
                       </p>
                     )}
                   </div>

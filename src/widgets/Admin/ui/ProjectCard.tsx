@@ -59,9 +59,11 @@ export const ProjectCard: FC<ProjectCardProps> = ({
             </div>
           </div>
 
-          <p className="text-gray-300 text-sm mb-3 line-clamp-2">
-            {project.description}
-          </p>
+          <div className="max-w-[900px]">
+            <p className="text-gray-300 text-sm mb-3 line-clamp-2 break-words">
+              {project.description}
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-2 mb-3">
             {project.technologies.map((tech, index) => (

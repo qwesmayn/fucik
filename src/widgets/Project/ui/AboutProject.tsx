@@ -13,9 +13,9 @@ export const AboutProject: FC<AboutProjectProps> = ({
   tools,
 }) => {
   return (
-    <div className="flex flex-col gap-[39px] max-w-[593px]">
+    <div className="flex flex-col gap-[39px] max-w-[593px] text-pretty">
       <h2 className="font-outfit text-[32px] font-medium">{title}</h2>
-      <p className="text-lg font-light text-white/50">{description}</p>
+      <p className="text-lg font-light text-white/50 break-words">{description}</p>
       <ToolsList tools={tools} />
     </div>
   );
