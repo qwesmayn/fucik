@@ -79,9 +79,9 @@ export const MainBlock = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen xl:px-15 px-5 pb-10 flex flex-col justify-between">
+    <section className="relative sm:min-h-screen xl:px-15 px-5 pb-10 flex flex-col sm:justify-between sm:gap-0 gap-[183px]">
       <div className="flex flex-col relative z-30">
-        <div className="pt-[157px]">
+        <div className="sm:pt-[157px] pt-[27px]">
           <Image
             src="/xromosev.png"
             alt="xromosev"
@@ -95,17 +95,17 @@ export const MainBlock = () => {
       <div className="relative z-30 space-y-[47px] max-w-[1178px]">
         <div className="flex items-center gap-4">
           <Link href="#about-me">
-            <Button className=" bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light text-lg backdrop-blur-2xl">
+            <Button className=" bg-[#EAEAEA]/[0.06] hover:bg-[#EAEAEA]/[0.16] font-light sm:text-lg text-xs backdrop-blur-2xl">
               About me
             </Button>
           </Link>
           <Link href="#portfolio">
-            <Button className="bg-[#FF3C00] hover:bg-[#FF3C00]/[0.6] font-light text-lg">
+            <Button className="bg-[#FF3C00] hover:bg-[#FF3C00]/[0.6] font-light sm:text-lg text-xs">
               Portfolio
             </Button>
           </Link>
         </div>
-        <div className="max-w-[1178px] w-full grid grid-cols-1 lg:grid-cols-2 gap-10 font-light text-xl text-[#818181] *:border-l-2 *:border-white *:pl-[15px]">
+        <div className="max-w-[1178px] w-full grid grid-cols-1 lg:grid-cols-2 gap-10 font-light sm:text-xl text-xs text-[#818181] *:border-l-2 *:border-white *:pl-[15px]">
           <div>
             <p>
               Xromosev came from constantly digging through old projects

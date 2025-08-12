@@ -39,16 +39,16 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
       )}
     >
       <Link
-        href={onMouseEnter ? link ?? pageConfig.project + "/" + projectId : ""}
+        href={onMouseEnter ? link || pageConfig.project + "/" + projectId : ""}
         className={cn(
           "cursor-pointer relative w-full transition-normal duration-700 rounded-[10px] border border-white/10",
           hoveredIndex === index
             ? "h-[479px]"
-            : hoveredIndex === index - 1 ||
+            : (hoveredIndex === index - 1 && index !== 5) ||
               (hoveredIndex === 4 && index === 3) ||
               (hoveredIndex === 8 && index === 7)
             ? "h-[228px]"
-            : "h-[321px]",
+            : "sm:h-[321px] h-[125px]",
           className
         )}
         onMouseEnter={onMouseEnter}
@@ -81,7 +81,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
       >
         <ToolsList tools={tools} />
         <div>
-          <p className="font-outfit font-light text-lg">{title}</p>
+          <p className="font-outfit font-light sm:text-lg text-xs">{title}</p>
         </div>
       </div>
     </div>

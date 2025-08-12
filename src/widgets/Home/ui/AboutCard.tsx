@@ -40,19 +40,19 @@ export const AboutCard: FC<AboutCardProps> = ({
   return (
     <div
       className={cn(
-        "relative space-y-[39px] pb-[39px] max-w-[593px] w-full",
+        "relative sm:pb-[39px] pb-5 max-w-[593px] w-full",
         className
       )}
       {...props}
     >
-      <div>
-        <h3 className="text-[34px] font-medium font-outfit">{title}</h3>
+      <div className="sm:mb-[39px] mb-5">
+        <h3 className="sm:text-[34px] text-xl font-medium font-outfit">{title}</h3>
       </div>
       {children ? (
         <div className="flex flex-wrap gap-[5px]">{children}</div>
       ) : (
         <div>
-          <p className="text-white/50 font-light text-lg">{description}</p>
+          <p className="text-white/50 font-light sm:text-lg text-xs">{description}</p>
         </div>
       )}
       <div

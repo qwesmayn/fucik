@@ -15,23 +15,23 @@ export const Footer: FC = () => {
 
   return pathname === pageConfig.login ? null : (
     <footer className="xl:px-15 px-5 pt-10 xl:pt-15 pb-[60px] xl:pb-[100px] border-t border-white/10 overflow-hidden">
-      <div className="relative flex flex-col xl:flex-row xl:flex-wrap xl:justify-center gap-[40px] xl:gap-[90px]">
-        <div className="relative z-30 flex flex-col items-center xl:items-start">
-          <div className="bg-[#FF3C00] text-center py-[1px] px-[5px] w-max rounded-[5px] text-[#0B0B0B] mb-4">
-            <p className="text-xl font-light">Contact</p>
-          </div>
+      <div className="ml-[1%] bg-[#FF3C00] text-center py-[1px] px-[5px] w-max rounded-[5px] text-[#0B0B0B] mb-10">
+        <p className="font-light sm:text-xl text-sm">Contact</p>
+      </div>
+      <div className="relative flex flex-col-reverse sm:flex-col xl:flex-row xl:flex-wrap xl:justify-center gap-[40px] xl:gap-[90px]">
+        <div className="sm:relative absolute sm:bottom-0 -bottom-52 sm:right-0 -right-22 z-30 flex flex-col items-center xl:items-start">
           <div>
-            <Image 
-              src="/xmln.png" 
-              alt="xmln" 
-              width={324} 
+            <Image
+              src="/xmln.png"
+              alt="xmln"
+              width={324}
               height={277}
               className="w-[250px] h-auto xl:w-[324px]"
             />
           </div>
         </div>
 
-        <div className="relative z-30 flex flex-col gap-[60px] xl:gap-[145px] items-center xl:items-start text-center xl:text-left">
+        <div className="relative z-30 flex flex-col gap-[60px] xl:gap-[145px] xl:items-start text-left">
           <div className="space-y-8 xl:space-y-10">
             <div className="space-y-[6px] font-outfit">
               <p>Email</p>
@@ -51,7 +51,7 @@ export const Footer: FC = () => {
           </div>
         </div>
 
-        <div className="relative z-30 flex gap-[50px] flex-wrap justify-center">
+        <div className="relative z-30 flex sm:gap-[50px] gap-3 flex-wrap sm:justify-center justify-between">
           <SocialCard
             title="Behance"
             description="Super cases with portfolio"

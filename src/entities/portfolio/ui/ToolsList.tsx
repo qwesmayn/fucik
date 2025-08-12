@@ -12,7 +12,7 @@ export const ToolsList: FC<ToolsListProps> = ({ tools }) => {
           key={index}
           className="px-5 py-[5px] rounded-[5px] border border-white/10"
         >
-          <p className="font-light text-lg">{tool}</p>
+          <p className="font-light sm:text-lg text-xs">{tool}</p>
         </div>
       ))}
     </div>

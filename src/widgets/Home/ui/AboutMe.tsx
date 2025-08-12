@@ -63,22 +63,22 @@ export const AboutMe = () => {
   return (
     <section
       id="about-me"
-      className="relative mt-[250px] mb-[195px] min-h-screen xl:px-15 px-5 flex flex-col justify-between"
+      className="relative sm:mt-[250px] mt-[100px] sm:mb-[195px] mb-[37px] sm:min-h-screen xl:px-15 px-5 flex flex-col sm:justify-between"
     >
-      <div className="bg-[#FF3C00] relative z-30 text-center py-[1px] px-[5px] mb-[195px] w-max rounded-[5px] text-[#0B0B0B]">
-        <p className="text-xl font-light">About me</p>
+      <div className="bg-[#FF3C00] relative z-30 text-center py-[1px] px-[5px] sm:mb-[195px] mb-[37px] w-max rounded-[5px] text-[#0B0B0B]">
+        <p className=" ont-light sm:text-xl text-sm">About me</p>
       </div>
       <div ref={ref} className="relative z-30 lg:pl-[190px] pl-0">
         <div className="flex flex-col max-w-[1156px] w-full">
           <AboutCard
             title="3D Motion Designer"
             description="I'm a 3D motion designer focused on delivering isometric graphics, realistic renders, promo visuals, and UI-integrated 3D content. Whether you need visuals for your website, product launch, or digital branding — I’ll take it from idea to final delivery with clarity and purpose."
-            className="mb-[100px]"
+            className="sm:mb-[100px] mb-5"
           />
           <AboutCard
             title="Core skills"
             description="3D Design & Visuals • Motion Graphics • Promo Content • Explainer Videos • Product Visualization • NFT Creation • Digital Graphics & Typography"
-            className="ml-auto mb-[65px]"
+            className="ml-auto sm:mb-[65px] mb-5"
           />
           <AboutCard title="Tools I use">
             {tools.map((tool, index) => (
@@ -86,7 +86,7 @@ export const AboutMe = () => {
                 key={index}
                 className="px-5 py-2 rounded-[5px] border border-white/10"
               >
-                <p className="text-[#838383]">{tool}</p>
+                <p className="text-[#838383] sm:text-base text-xs">{tool}</p>
               </div>
             ))}
           </AboutCard>
