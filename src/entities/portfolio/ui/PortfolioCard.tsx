@@ -40,6 +40,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
     >
       <Link
         href={onMouseEnter ? link || pageConfig.project + "/" + projectId : ""}
+        target={link ? "_blank" : undefined}
         className={cn(
           "cursor-pointer relative w-full transition-normal duration-900 rounded-[10px] border border-white/10",
           hoveredIndex === index
@@ -73,10 +74,9 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
       </Link>
       <div
         className={cn(
-          "relative md:absolute flex flex-wrap items-center gap-[10px] transition-all duration-700",
-          "md:bottom-0 md:left-0 md:translate-y-[75px]",
+          "absolute bottom-0 left-0 translate-y-[75px] flex sm:flex-row flex-col-reverse flex-wrap gap-[10px] transition-all duration-700",
           hoveredIndex === index &&
-            "md:bottom-[25px] md:left-[25px] md:translate-y-0"
+            "absolute bottom-[25px] left-[25px] translate-y-0"
         )}
       >
         <ToolsList tools={tools} />

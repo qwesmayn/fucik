@@ -13,7 +13,7 @@ export const Portfolio: FC<PortfolioProps> = ({ projects }) => {
   return (
     <section
       id="portfolio"
-      className="relative sm:mb-[150px] mb-[37px] sm:min-h-screen xl:px-15 px-5 sm:pb-[50px] "
+      className="relative sm:mb-[150px] mb-[37px] sm:min-h-screen xl:px-15 px-5 pb-[50px]"
     >
       <div className="bg-[#FF3C00] relative z-30 text-center py-[1px] px-[5px] sm:mb-[150px] mb-[37px] w-max rounded-[5px] text-[#0B0B0B]">
         <p className="font-light sm:text-xl text-sm">Portfolio</p>

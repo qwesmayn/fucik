@@ -17,7 +17,7 @@ export const Header: FC = () => {
     pathname === pageConfig.login ||
     pathname === pageConfig.admin ? null : (
     <header className="w-full bg-[#070707]/25 text-center border-b border-white/10">
-      <div className="flex items-center px-[66px] min-h-[67px]">
+      <div className="flex items-center xl:px-[66px] px-5 min-h-[67px]">
         <button
           className="cursor-pointer flex items-center gap-2"
           onClick={handleBack}
