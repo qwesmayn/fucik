@@ -34,8 +34,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
   return (
     <div
       className={cn(
-        "relative flex flex-col gap-[15px] md:gap-[25px] group mb-[40px] md:mb-[132px] transition-all duration-700",
-        hoveredIndex === index && "md:mb-[50px]"
+        "relative flex flex-col gap-[15px] md:gap-[25px] group mb-[40px] md:mb-[50px] transition-all duration-700",
       )}
     >
       <Link
@@ -44,11 +43,11 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
         className={cn(
           "cursor-pointer relative w-full transition-normal duration-900 rounded-[10px] border border-white/10",
           hoveredIndex === index
-            ? "h-[479px]"
+            ? "sm:h-[479px] h-[228px]"
             : (hoveredIndex === index - 1 && index !== 5) ||
               (hoveredIndex === 4 && index === 3) ||
               (hoveredIndex === 8 && index === 7)
-            ? "h-[228px]"
+            ? "sm:h-[228px] h-[90px]"
             : "sm:h-[321px] h-[125px]",
           className
         )}
@@ -73,11 +72,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
         )}
       </Link>
       <div
-        className={cn(
-          "absolute bottom-0 left-0 translate-y-[75px] flex sm:flex-row flex-col-reverse flex-wrap gap-[10px] transition-all duration-700",
-          hoveredIndex === index &&
-            "absolute bottom-[25px] left-[25px] translate-y-0"
-        )}
+        className="flex sm:items-center sm:flex-row flex-col-reverse flex-wrap gap-[10px] transition-all duration-700"
       >
         <ToolsList tools={tools} />
         <div>

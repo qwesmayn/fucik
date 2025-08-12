@@ -96,6 +96,7 @@ export const AboutMe = () => {
         ref={imageRef}
         className="absolute 2xl:right-[9%] right-[0] top-[251px] w-[824px] h-[1051px] hidden lg:block"
       >
+        <div className="noise rounded-full overflow-hidden h-[951px] w-full absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2" />
         <Image
           src="/radiance.webp"
           alt="radiance"
@@ -103,10 +104,9 @@ export const AboutMe = () => {
           quality={100}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
+          className="object-cover" 
         />
       </div>
-      <div className="noise-about mix-blend-soft-light" />
     </section>
   );
 };

@@ -50,8 +50,8 @@ const SortableProjectCard: FC<SortableProjectCardProps> = ({
         key={project.id}
         projectId={project.id}
         image={
-          project.files?.[0]
-            ? process.env.NEXT_PUBLIC_IMG + project.files[0]
+          project.coverImage
+            ? process.env.NEXT_PUBLIC_IMG + project.coverImage
             : "https://placehold.co/875x321"
         }
         title={project.title}
@@ -128,7 +128,7 @@ export const ProjectTopPosition: FC<ProjectTopPositionProps> = ({
   }
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full bg-black/80 z-50 flex justify-center py-10">
+    <div className="fixed inset-0 bg-black/80 z-50 flex justify-center py-10">
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
@@ -138,7 +138,7 @@ export const ProjectTopPosition: FC<ProjectTopPositionProps> = ({
           items={localProjects.map((p) => p.id)}
           strategy={verticalListSortingStrategy}
         >
-          <div className="flex items-start gap-[50px] max-w-[1280px] mx-auto w-full p-4 bg-white/10 backdrop-blur-xl border border-white/10 rounded-lg">
+          <div className="flex items-start gap-[50px] max-w-[1280px] mx-auto w-full p-4 bg-white/10 backdrop-blur-xl border border-white/10 rounded-lg overflow-y-auto">
             <div className="grid grid-cols-1 w-full">
               {column1.map((item, index) => (
                 <SortableProjectCard

@@ -79,7 +79,7 @@ export const MainBlock = () => {
   }, []);
 
   return (
-    <section className="relative sm:min-h-screen xl:px-15 px-5 pb-10 flex flex-col sm:justify-between sm:gap-0 gap-[183px]">
+    <section className="relative noise sm:min-h-screen xl:px-15 px-5 pb-11 flex flex-col sm:justify-between sm:gap-0 gap-[183px] overflow-hidden">
       <div className="flex flex-col relative z-30">
         <div className="sm:pt-[157px] pt-[27px]">
           <Image
@@ -132,9 +132,7 @@ export const MainBlock = () => {
         ref={refCircle}
         className="absolute z-10 bg-[url('/circle.png')] bg-cover bg-center bg-no-repeat xl:w-[605px] xl:h-[605px] sm:w-[400px] sm:h-[400px] w-[300px] h-[300px] left-[20%] translate-y-[5%]"
       />
-      <div className="border-b border-white/10 -bottom-10 inset-x-0 absolute z-50" />
-
-      <div className="noise mix-blend-soft-light" />
+      <div className="border-b border-white/10 bottom-0 inset-x-0 absolute z-50" />
     </section>
   );
 };
