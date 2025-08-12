@@ -41,7 +41,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
       <Link
         href={onMouseEnter ? link || pageConfig.project + "/" + projectId : ""}
         className={cn(
-          "cursor-pointer relative w-full transition-normal duration-700 rounded-[10px] border border-white/10",
+          "cursor-pointer relative w-full transition-normal duration-900 rounded-[10px] border border-white/10",
           hoveredIndex === index
             ? "h-[479px]"
             : (hoveredIndex === index - 1 && index !== 5) ||
