@@ -79,7 +79,7 @@ export const MainBlock = () => {
   }, []);
 
   return (
-    <section className="relative noise sm:min-h-screen xl:px-15 px-5 pb-11 flex flex-col sm:justify-between sm:gap-0 gap-[183px] overflow-hidden">
+    <section className="relative noise-main sm:min-h-screen xl:px-15 px-5 pb-11 flex flex-col sm:justify-between sm:gap-0 gap-[183px] overflow-hidden">
       <div className="flex flex-col relative z-30">
         <div className="sm:pt-[157px] pt-[27px]">
           <Image
@@ -123,8 +123,8 @@ export const MainBlock = () => {
         </div>
       </div>
 
-      <div className="absolute md:block hidden 3xl:w-[942px] 3xl:h-[68%] xl:w-[842px] xl:h-[55%] w-[642px] h-[425px] top-[28%] right-[0] translate-x-[50%] hover:rotate-[6deg] transition-all duration-1000">
-        <Image src="/x.webp" alt="x" priority fill sizes="100vw" />
+      <div className="absolute md:block hidden 3xl:w-[1128px] 3xl:h-[88%] xl:w-[1028px] xl:h-[75%] w-[818px] h-[655px] top-[17%] right-[0] translate-x-[50%] hover:rotate-[6deg] transition-all duration-1000">
+        <Image src="/x.png" alt="x" priority fill sizes="100vw" />
       </div>
 
       <div className="absolute bg-[#FF3C00] xl:w-[761px] xl:h-[761px] sm:w-[500px] sm:h-[500px] w-[300px] h-[300px] rounded-full left-[15%] translate-y-[-30%] blur-[50px]" />
