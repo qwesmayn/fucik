@@ -96,7 +96,7 @@ export const AboutMe = () => {
         ref={imageRef}
         className="absolute 2xl:right-[9%] right-[0] top-[251px] w-[824px] h-[1051px] hidden lg:block"
       >
-        <div className="noise rounded-full overflow-hidden h-[951px] w-full absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2" />
+        <div className="noise rounded-[824px/1051px] overflow-hidden h-[929px] w-[755px] absolute top-[50%] left-[45%] -translate-x-1/2 -translate-y-1/2" />
         <Image
           src="/radiance.webp"
           alt="radiance"

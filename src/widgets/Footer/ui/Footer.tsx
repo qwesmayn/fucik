@@ -19,16 +19,14 @@ export const Footer: FC = () => {
         <p className="font-light sm:text-xl text-sm">Contact</p>
       </div>
       <div className="relative flex flex-col-reverse sm:flex-col xl:flex-row xl:flex-wrap xl:justify-center gap-[40px] xl:gap-[70px]">
-        <div className="sm:relative absolute sm:bottom-0 -bottom-52 sm:right-0 -right-22 z-30 flex flex-col items-center xl:items-start">
-        <div className="noise overflow-hidden h-[337px] blur-[1px] w-full absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2" />
-            <Image
-              src="/xmln.png"
-              alt="xmln"
-              width={324}
-              height={277}
-              className="w-[250px] h-auto xl:w-[324px]"
-            />
- 
+        <div className="flex flex-col items-center xl:items-start">
+          <Image
+            src="/xmln.png"
+            alt="xmln"
+            width={324}
+            height={277}
+            className="w-[250px] h-auto xl:w-[324px]"
+          />
         </div>
 
         <div className="relative z-30 flex flex-col gap-[50px] xl:gap-[130px] xl:items-start text-left">
