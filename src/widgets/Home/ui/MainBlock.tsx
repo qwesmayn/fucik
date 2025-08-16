@@ -123,7 +123,7 @@ export const MainBlock = () => {
         </div>
       </div>
 
-      <div className="absolute md:block hidden 3xl:w-[1128px] 3xl:h-[88%] xl:w-[1028px] xl:h-[75%] w-[818px] h-[655px] top-[17%] right-[0] translate-x-[50%] hover:rotate-[6deg] transition-all duration-1000">
+      <div className="absolute md:block hidden 3xl:w-[58.7%] 3xl:h-[88.4%] xl:w-[1028px] xl:h-[75%] w-[818px] h-[655px] top-[17%] right-[0] translate-x-[50%] hover:rotate-[6deg] transition-all duration-1000">
         <Image src="/x.png" alt="x" priority fill sizes="100vw" />
       </div>
 

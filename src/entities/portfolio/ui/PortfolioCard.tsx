@@ -58,6 +58,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
           src={image}
           alt={title}
           fill
+          quality={100}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={cn(
             "rounded-[10px] object-cover transition-opacity duration-300",

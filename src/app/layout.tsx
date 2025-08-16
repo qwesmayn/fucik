@@ -18,8 +18,8 @@ const hegval = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Fucik",
-  description: "Fucik",
+  title: "Xromosev",
+  description: "Xromosev",
 };
 
 export default function RootLayout({
