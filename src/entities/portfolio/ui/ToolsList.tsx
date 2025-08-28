@@ -10,7 +10,7 @@ export const ToolsList: FC<ToolsListProps> = ({ tools }) => {
       {tools.map((tool, index) => (
         <div
           key={index}
-          className="px-5 py-[5px] rounded-[5px] border border-white/10"
+          className="px-[7.6px] sm:px-5 sm:py-[2.5px] py-[3px] rounded-[5px] border border-white/10"
         >
           <p className="font-light sm:text-lg text-xs">{tool}</p>
         </div>

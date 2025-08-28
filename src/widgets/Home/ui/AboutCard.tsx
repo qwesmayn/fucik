@@ -46,7 +46,7 @@ export const AboutCard: FC<AboutCardProps> = ({
       {...props}
     >
       <div className="sm:mb-[39px] mb-5">
-        <h3 className="sm:text-[34px] text-xl font-medium font-outfit">{title}</h3>
+        <h3 className="sm:text-[34px] text-2xl font-medium font-outfit">{title}</h3>
       </div>
       {children ? (
         <div className="flex flex-wrap gap-[5px]">{children}</div>

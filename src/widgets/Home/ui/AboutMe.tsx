@@ -84,7 +84,7 @@ export const AboutMe = () => {
             {tools.map((tool, index) => (
               <div
                 key={index}
-                className="px-5 py-2 rounded-[5px] border border-white/10"
+                className="sm:px-5 px-[11.4px] sm:py-2 py-[3.2px] rounded-[5px] border border-white/10"
               >
                 <p className="text-[#838383] sm:text-base text-xs">{tool}</p>
               </div>

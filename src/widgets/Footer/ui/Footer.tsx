@@ -9,6 +9,7 @@ import youtube from "@/shared/assets/icons/youtube.png";
 import linkedin from "@/shared/assets/icons/in.png";
 import { usePathname } from "next/navigation";
 import { pageConfig } from "@/shared/config/page.config";
+import Link from "next/link";
 
 export const Footer: FC = () => {
   const pathname = usePathname();
@@ -29,7 +30,7 @@ export const Footer: FC = () => {
           />
         </div>
 
-        <div className="relative z-30 flex flex-col gap-[50px] xl:gap-[130px] xl:items-start text-left">
+        <div className="relative z-30 flex flex-col justify-between h-[328px] xl:items-start text-left">
           <div className="space-y-8 xl:space-y-10">
             <div className="space-y-[6px] font-outfit">
               <p>Email</p>
@@ -39,12 +40,14 @@ export const Footer: FC = () => {
             </div>
             <div className="space-y-[6px] font-outfit">
               <p>Telegram</p>
+              <Link href="https://t.me/fucikk" target="_blank">
               <p className=" text-white/85 font-extralight">@xromosev</p>
+              </Link>
             </div>
           </div>
           <div className="max-w-[195px]">
             <p className="font-outfit font-extralight text-white/85">
-              Xromosev.net best site ever what you know, nice job
+            Your story deserves visuals that inspire — let’s make it happen
             </p>
           </div>
         </div>
